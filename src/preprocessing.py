@@ -59,3 +59,10 @@ def encode_and_split(df: pd.DataFrame, test_size: float = 0.2):
 def save_processed(df: pd.DataFrame, path: str) -> None:
     df.to_csv(path, index=False)
     print(f"Saved → {path}")
+
+
+def satisfaction_composite(df):
+    """Compute a single composite satisfaction score from the four survey dimensions."""
+    cols = ['JobSatisfaction', 'EnvironmentSatisfaction', 'RelationshipSatisfaction', 'WorkLifeBalance']
+    existing = [c for c in cols if c in df.columns]
+    return df[existing].mean(axis=1)
