@@ -108,3 +108,15 @@ def business_cost_analysis(y_true, y_pred, monthly_incomes: np.ndarray,
         'savings': savings, 'intervention_cost': interventions,
         'missed_cost': missed, 'net_benefit': savings - interventions
     }
+
+
+def precision_recall_summary(y_true, y_prob, threshold: float = 0.5) -> dict:
+    """Quick summary of precision, recall, and F1 at a given threshold."""
+    from sklearn.metrics import precision_score, recall_score, f1_score
+    preds = (y_prob >= threshold).astype(int)
+    return {
+        'threshold': threshold,
+        'precision': round(precision_score(y_true, preds, zero_division=0), 4),
+        'recall': round(recall_score(y_true, preds, zero_division=0), 4),
+        'f1': round(f1_score(y_true, preds, zero_division=0), 4),
+    }
