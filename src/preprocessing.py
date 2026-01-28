@@ -66,3 +66,14 @@ def satisfaction_composite(df):
     cols = ['JobSatisfaction', 'EnvironmentSatisfaction', 'RelationshipSatisfaction', 'WorkLifeBalance']
     existing = [c for c in cols if c in df.columns]
     return df[existing].mean(axis=1)
+
+
+def flag_high_risk(df: pd.DataFrame) -> pd.Series:
+    """Simple rule-based flag for employees likely at risk — for sense-checking model output."""
+    import pandas as pd
+    score = (
+        (df.get('OverTime', pd.Series(['No']*len(df))) == 'Yes').astype(int) * 2 +
+        (df.get('JobSatisfaction', pd.Series([3]*len(df))) <= 2).astype(int) +
+        (df.get('YearsAtCompany', pd.Series([5]*len(df))) < 2).astype(int)
+    )
+    return score >= 2
