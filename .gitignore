@@ -12,3 +12,5 @@ models/*.joblib
 .DS_Store
 .idea/
 .vscode/
+*.log
+.env
