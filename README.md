@@ -134,3 +134,13 @@ Python 3.10 · pandas · scikit-learn · matplotlib · seaborn · Jupyter
 - [ ] Streamlit dashboard — interactive predictions for HR teams to use directly
 - [ ] Hyperparameter tuning with cross-validated search
 - [ ] Segment analysis — attrition drivers likely differ across departments and seniority levels
+
+---
+
+## About this project
+
+Second project in a deliberate sequence. Coming from a frontend background, I was used to thinking about user behaviour in aggregate — conversion rates, session length, click-through rates. HR attrition is the same concept applied to employees instead of users. Someone is either retained or they're not. The signals that predict churn in a product also tend to predict churn in a workforce.
+
+That lens — user behaviour thinking applied to a different domain — is what made this feel natural to explore. The multi-model comparison and business cost framing here were a deliberate step up from the baseline approach in [credit-risk-analysis](https://github.com/GOLDENIG37/credit-risk-analysis).
+
+Next: [customer-clv-segmentation](https://github.com/GOLDENIG37/customer-clv-segmentation) — unsupervised segmentation, gradient boosting, and SHAP.
